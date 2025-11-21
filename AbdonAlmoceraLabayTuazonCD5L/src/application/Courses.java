@@ -8,10 +8,11 @@ public class Courses {
 	private String section; 
 	private String time; 
 	private String days; 
-	private String room; 
+	private String room;
+	private String description;
 
 	public Courses (String courseCode, String courseTitle, int units,
-					String section, String time, String days, String room){
+					String section, String time, String days, String room, String description){
 		this.courseCode = courseCode; 
 		this.courseTitle = courseTitle; 
 		this.units = units; 
@@ -19,6 +20,7 @@ public class Courses {
 		this.time = time; 
 		this.days = days; 
 		this.room = room; 
+		this.description = description; 
 	}
 
 	//getters for course detail display
@@ -43,6 +45,10 @@ public class Courses {
 	public String getRoom(){
 		return this.room;
 	}
+	public String getDescription(){
+		return this.description;
+	}
+	
 
 
 	//methods
@@ -54,6 +60,7 @@ public class Courses {
 		//checks if a course is in a curriculum
 	}
 }
+
 
 
 
