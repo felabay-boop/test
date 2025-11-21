@@ -2,24 +2,24 @@ package application;
 
 public class Courses {
 	private String courseCode; 
-	private String courseName;
-	private int units; 
-	private String room; 
-	private String[] days; 
+	private String courseTitle;
+	private int units;
 	private String section; 
-	private String startTime; 
-	private String endTime; 
+	private String time; 
+	private String days; 
+	private String room; 
 
-	public Courses (String courseCode, String courseName, int units
-				   , String room, String section, String startTime, 
-					String endTime){
+	public Courses (String courseCode, String courseTitle, int units
+				   , String section, String time, String days, 
+					String room){
 		this.courseCode = courseCode; 
-		this.courseName = courseName; 
+		this.courseTitle = courseTitle; 
 		this.units = units; 
-		this.room = room; 
 		this.section = section; 
-		this.startTime = startTime; 
-		this.endTime = endTime; 
+		this.time = time; 
+		this.days = days; 
+		this.room = room; 
 	}
 }
+
 
