@@ -9,7 +9,7 @@ public class Students {
 	private DegProg degprog;
 	private Account account;
 	
-	public Student(String name,
+	public Students(String name,
 	int ID,
 	ArrayList<Courses> courses,
 	DegProg degprog,
@@ -17,4 +17,5 @@ public class Students {
 		
 	}
 }
+
 
