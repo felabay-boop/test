@@ -23,35 +23,35 @@ public class Students {
 	}
 
 	//getters for account display and boolean (ex. if degprog aligns with course)
-	public getName(){
+	public String getName(){
 		return this.name;
 	}
-	public getID(){
+	public int getID(){
 		return this.ID;
 	}
-	public getDegprog(){
+	public String getDegprog(){
 		return this.degree.name;
 	}
 
 	//setters
 		//for registering new accounts?
-	setName(){}
-	setID(){}
-	setDegProg(){}
+	void setName(){}
+	void setID(){}
+	void setDegProg(){}
 
 	
 	//methods
-	addCourse(){
+	void addCourse(){
 		
 	}
-	deleteCourse(){
+	void deleteCourse(){
 		
 	}
-	editCourse(){
+	void editCourse(){
 		
 	}
 
-	private doesAccExist(){ //boolean to check if account exists yet
+	private boolean doesAccExist(){ //boolean to check if account exists yet
 		if (this.account == NULL){
 			return false;
 		} else {
@@ -59,7 +59,7 @@ public class Students {
 		}
 	}
 	
-	login(){
+	void login(){
 		//log in details and check if student already exists in system
 		if (doesAccExist() == true){
 			//start code for logging in
@@ -68,15 +68,16 @@ public class Students {
 		}
 		
 	}
-	register(){
+	void register(){
 		//setter methods(?) to input account details
 	}
-	public viewWeeklyCalendar(){
+	public void viewWeeklyCalendar(){
 		
 	}
 	
 	
 }
+
 
 
 
