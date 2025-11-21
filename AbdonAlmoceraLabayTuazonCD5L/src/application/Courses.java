@@ -24,30 +24,14 @@ public class Courses {
 	}
 
 	//getters for course detail display
-	public String getCourseCode(){
-		return this.courseCode; 
-	}
-	public String getCourseTitle(){
-		return this.courseTitle;
-	}
-	public int getUnits(){
-		return this.units;
-	}
-	public String getSection(){
-		return this.section;
-	}
-	public String getTime() {
-		return this.time;
-	}
-	public String getDays(){
-		return this.days;
-	}
-	public String getRoom(){
-		return this.room;
-	}
-	public String getDescription(){
-		return this.description;
-	}
+	public String getCourseCode(){return this.courseCode; }
+	public String getCourseTitle(){return this.courseTitle;}
+	public int getUnits(){return this.units;}
+	public String getSection(){return this.section;}
+	public String getTime() {return this.time;}
+	public String getDays(){return this.days;}
+	public String getRoom(){return this.room;}
+	public String getDescription(){return this.description;}
 	
 
 
@@ -60,6 +44,7 @@ public class Courses {
 		//checks if a course is in a curriculum
 	}
 }
+
 
 
 
