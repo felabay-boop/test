@@ -20,6 +20,21 @@ public class Courses {
 		this.days = days; 
 		this.room = room; 
 	}
+
+	//getters:
+	public String getCourseCode (){ return courseCode }
+	public String getCourseTitle (){ return courseTitle }
+	public int getUnits (){ return units }
+	public String getSection (){ return section }
+
+	public void viewCourseDetails() {
+		//insert implementation
+	}
+
+	boolean checkCourseInCurriculum() {
+		//checks if a course is in a curriculum
+	}
 }
+
 
 
