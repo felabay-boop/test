@@ -2,14 +2,24 @@ package application;
 
 import java.util.ArrayList;
 
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
 public class Welcome {
 	private Scene scene;
 	private GridPane root;
-	private ArrayList<User> sampleList;
+	private ArrayList<Student> sampleList;
 	TextField username = new TextField();
 	TextField password = new TextField();
 	
-	public Login(ArrayList<Students> a) {
+	public void Login(ArrayList<Student> a) {
 		this.root = new GridPane();
 		this.scene = new Scene(root, 250, 150);
 		this.sampleList = a;
@@ -80,4 +90,5 @@ public class Welcome {
 	}
 	
 }
+
 
