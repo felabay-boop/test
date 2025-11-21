@@ -21,20 +21,31 @@ public class Courses {
 		this.room = room; 
 	}
 
-	//getters:
-	public String getCourseCode (){
+	//getters for course detail display
+	public String getCourseCode(){
 		return this.courseCode; 
 	}
-	public String getCourseTitle (){
+	public String getCourseTitle(){
 		return this.courseTitle;
 	}
-	public int getUnits (){
+	public int getUnits(){
 		return this.units;
 	}
-	public String getSection (){
+	public String getSection(){
 		return this.section;
 	}
+	public String getTime() {
+		return this.time;
+	}
+	public String getDays(){
+		return this.days;
+	}
+	public String getRoom(){
+		return this.room;
+	}
 
+
+	//methods
 	public void viewCourseDetails() {
 		//insert implementation
 	}
@@ -43,6 +54,7 @@ public class Courses {
 		//checks if a course is in a curriculum
 	}
 }
+
 
 
 
