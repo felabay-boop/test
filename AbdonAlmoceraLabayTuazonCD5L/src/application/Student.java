@@ -2,82 +2,83 @@ package application;
 
 import java.util.ArrayList;
 
-public class Students {
+public class Student {
 	//attributes
 	private String name;
 	private int ID;
-	private ArrayList<Courses> courses;
-	private DegProg degprog;
-	private Account account;
+	private ArrayList<Courses> courses = new ArrayList<>();
+	private String degprog;
 	
-	public Students(String name,
-	int ID,
-	ArrayList<Courses> courses,
-	DegProg degprog,
-	Account account) {
+	public Student(String name, int ID, ArrayList<Courses> courses, String degprog) {
 		this.name = name;
 		this.ID = ID;
 		//courses - i forgot how to array wait
+		this.courses = courses;
 		this.degprog = degprog;
-		this.account = account;
 	}
 
 	//getters for account display and boolean (ex. if degprog aligns with course)
-	public String getName(){
-		return this.name;
-	}
-	public int getID(){
-		return this.ID;
-	}
-	public String getDegprog(){
-		return this.degree.name;
-	}
+	public String getName() {return this.name;}
+	public int getID() {return this.ID;}
+	public ArrayList<Courses> getCourses() {return this.courses;}
+	public String getDegprog() {return this.degprog;}
 
 	//setters
 		//for registering new accounts?
-	void setName(){}
-	void setID(){}
-	void setDegProg(){}
-
+//	setName(){}
+//	setID(){}
+//	setDegProg(){}
+	//we dont need them a student wont change their name or id or degree after creation
 	
 	//methods
-	void addCourse(){
-		
+	public void addCourse(Courses course){
+		for(Courses c : this.courses) {
+			if(c.getCourseCode().equals(course.getCourseCode())) {
+				System.out.println("ERROR you already have this course");
+				return;
+			}
+		}
+		this.courses.add(course);	//goes here if no match
+		System.out.println("SUCCESS course added");
 	}
-	void deleteCourse(){
-		
+	public void deleteCourse(Courses course){
+		for(Courses c : this.courses) {
+			if(c.getCourseCode().equals(course.getCourseCode())) {
+				this.courses.remove(c);
+				System.out.println("SUCCESS course removed");
+				return;
+			}
+		}
+		//goes here if no match
+		System.out.println("ERROR you dont have this course");
 	}
-	void editCourse(){
-		
-	}
+//	editCourse(){
+//		
+//	}do we need this
 
-	private boolean doesAccExist(){ //boolean to check if account exists yet
-		if (this.account == NULL){
-			return false;
-		} else {
-			return true;
-		}
-	}
+//	private doesAccExist(){ //boolean to check if account exists yet
+//		if (this.account == NULL){
+//			return false;
+//		} else {
+//			return true;
+//		}
+//	}
 	
-	void login(){
-		//log in details and check if student already exists in system
-		if (doesAccExist() == true){
-			//start code for logging in
-		} else {
-			//prompt to register new account using register()
-		}
-		
-	}
-	void register(){
-		//setter methods(?) to input account details
-	}
+//	login(){should be on welcome i think
+//		//log in details and check if student already exists in system
+//		if (doesAccExist() == true){
+//			//start code for logging in
+//		} else {
+//			//prompt to register new account using register()
+//		}
+//		
+//	}
+//	register(){should be on welcome i think
+//		//setter methods(?) to input account details
+//	}
 	public void viewWeeklyCalendar(){
 		
 	}
 	
 	
 }
-
-
-
-
