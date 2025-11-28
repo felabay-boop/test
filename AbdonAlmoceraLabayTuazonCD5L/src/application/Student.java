@@ -8,6 +8,7 @@ public class Student {
 	private int ID;
 	private ArrayList<Courses> courses = new ArrayList<>();
 	private String degprog;
+	private LocalTime[][] calendar;
 	
 	public Student(String name, int ID, ArrayList<Courses> courses, String degprog) {
 		this.name = name;
@@ -32,7 +33,7 @@ public class Student {
 	
 	//methods
 	public void addCourse(Courses course){
-		for(Courses c : this.courses) {
+		for(Courses c : this.courses) {//checks if student already has course
 			if(c.getCourseCode().equals(course.getCourseCode())) {
 				System.out.println("ERROR you already have this course");
 				return;
@@ -42,7 +43,7 @@ public class Student {
 		System.out.println("SUCCESS course added");
 	}
 	public void deleteCourse(Courses course){
-		for(Courses c : this.courses) {
+		for(Courses c : this.courses) {//checks if course exists
 			if(c.getCourseCode().equals(course.getCourseCode())) {
 				this.courses.remove(c);
 				System.out.println("SUCCESS course removed");
@@ -82,3 +83,4 @@ public class Student {
 	
 	
 }
+
