@@ -6,8 +6,10 @@ public class Courses {
 	private String courseTitle;
 	private int units;
 	private String section; 
-	private String time; 
-	private String days; 
+	//private String time;
+	//private String days; 
+	private LocalTime startTime;
+	private LocalTime endTime;
 	private String room;
 	private String description;
 
@@ -44,6 +46,7 @@ public class Courses {
 		//checks if a course is in a curriculum
 	}
 }
+
 
 
 
