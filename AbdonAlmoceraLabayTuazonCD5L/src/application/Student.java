@@ -78,6 +78,28 @@ public class Student {
 		for(Courses c : this.courses) {//checks if course exists
 			if(c.getCourseCode().equals(course.getCourseCode())) {
 				this.courses.remove(c);
+				for(String day : course.getDays()){
+					int dayIndex;
+						switch(day){
+					case "Monday":
+						dayIndex = 0;
+						break;
+					case "Tuesday":
+						dayIndex = 1;
+						break;
+					case "Wednesday":
+						dayIndex = 2;
+						break;
+					case "Thursday":
+						dayIndex = 3;
+						break;
+					case "Friday":
+						dayIndex = 4;
+						break;
+					}
+					this.calendar.get(dayIndex).remove(course.getStartTime());
+					this.calendar.get(dayIndex).remove(course.getEndTime());
+				}
 				System.out.println("SUCCESS course removed");
 				return;
 			}
@@ -115,5 +137,6 @@ public class Student {
 	
 	
 }
+
 
 
