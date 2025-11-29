@@ -7,9 +7,9 @@ import java.nio.file.Paths;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class Courses {
+public class Course {
 	//attributes
-	public static ArrayList<Courses> COURSES = new ArrayList<>();	//holds all courses
+	public static ArrayList<Course> COURSES = new ArrayList<>();	//holds all courses
 	private String courseCode; 
 	private String courseTitle;
 	private int units;
@@ -20,7 +20,7 @@ public class Courses {
 	private LocalTime endTime;
 	private String room;
 
-	public Courses (String courseCode, String courseTitle, int units,
+	public Course (String courseCode, String courseTitle, int units,
 					String section, LocalTime startTime, LocalTime endTime, ArrayList<String> days, String room){
 		this.courseCode = courseCode; 
 		this.courseTitle = courseTitle; 
@@ -81,7 +81,7 @@ public class Courses {
 						days.add("Friday");
 						break;
 				}
-				Courses course = new Courses(cD[0],cD[1],Integer.parseInt(cD[2]),cD[3],LocalTime.parse(times[0]),LocalTime.parse(times[1]),days,cD[5]);
+				Course course = new Course(cD[0],cD[1],Integer.parseInt(cD[2]),cD[3],LocalTime.parse(times[0]),LocalTime.parse(times[1]),days,cD[5]);
 				COURSES.add(course);
 			}
 		}
@@ -96,6 +96,7 @@ public class Courses {
 		//checks if a course is in a curriculum
 	}
 }
+
 
 
 
