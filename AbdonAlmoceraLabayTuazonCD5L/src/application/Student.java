@@ -8,7 +8,7 @@ public class Student {
 	private int ID;
 	private ArrayList<Courses> courses = new ArrayList<>();
 	private String degprog;
-	private LocalTime[][] calendar;
+	private ArrayList<ArrayList<LocalTime>> calendar;
 	
 	public Student(String name, int ID, ArrayList<Courses> courses, String degprog) {
 		this.name = name;
@@ -33,13 +33,45 @@ public class Student {
 	
 	//methods
 	public void addCourse(Courses course){
-		for(Courses c : this.courses) {//checks if student already has course
-			if(c.getCourseCode().equals(course.getCourseCode())) {
+		for(Courses c : this.courses) {//loops through each course
+			if(c.getCourseCode().equals(course.getCourseCode())) {//checks if student already has course
 				System.out.println("ERROR you already have this course");
 				return;
 			}
+			for(String day : course.getDays()){
+				if(((course.getStartTime() > c.getStartTime() && course.getStartTime() < c.getEndTime()) ||
+				   (course.getEndTime() > c.getStartTime() && course.getEndTime() < c.getEndTime()) ||
+				   (course.getStartTime() < c.getStartTime() && course.getEndTime() > c.getEndTime())) && 
+				   (c.getDays().contains(day)){//if true, the course's schedule to be added collides with an existing course's
+					System.out.println("ERROR schedule collision with " + c.getName());
+					return;
+				}
+			}
 		}
-		this.courses.add(course);	//goes here if no match
+		//goes here if no match
+		this.courses.add(course);
+		int dayIndex;
+		for(String day : course.getDays()){
+			switch(day){
+				case "Monday":
+					dayIndex = 0;
+					break;
+				case "Tuesday":
+					dayIndex = 1;
+					break;
+				case "Wednesday":
+					dayIndex = 2;
+					break;
+				case "Thursday":
+					dayIndex = 3;
+					break;
+				case "Friday":
+					dayIndex = 4;
+					break;
+			}
+			this.calendar.get(dayIndex).add(course.getStartTime());
+			this.calendar.get(dayIndex).add(course.getEndTime());
+		}
 		System.out.println("SUCCESS course added");
 	}
 	public void deleteCourse(Courses course){
@@ -83,4 +115,5 @@ public class Student {
 	
 	
 }
+
 
