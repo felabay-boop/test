@@ -13,6 +13,10 @@ import java.util.Arrays;
 public class Course implements Data{
 	//attributes
 	public static ArrayList<Course> COURSES = new ArrayList<>();	//holds all courses
+	public static ArrayList<Course> CMSC_COURSES = new ArrayList<>();
+	public static ArrayList<Course> MSCS_COURSES = new ArrayList<>();
+	public static ArrayList<Course> MIT_COURSES = new ArrayList<>();
+	public static ArrayList<Course> PHD_COURSES = new ArrayList<>();
 	private String courseCode; 
 	private String courseTitle;
 	private int units;
@@ -147,5 +151,6 @@ public class Course implements Data{
 		}
 	}
 }
+
 
 
