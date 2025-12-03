@@ -19,4 +19,6 @@ public interface Data {//gives variables to repeated strings to avoid typographi
 	String WEDNESDAY = "Wednesday";
 	String THURSDAY = "Thursday";
 	String FRIDAY = "Friday";
+	String SATURDAY = "Saturday";
 }
+
