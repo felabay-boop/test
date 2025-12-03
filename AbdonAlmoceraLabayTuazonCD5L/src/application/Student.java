@@ -55,6 +55,7 @@ public class Student implements Data{
 				case WEDNESDAY:	dayIndex = 2;	break;
 				case THURSDAY:	dayIndex = 3;	break;
 				case FRIDAY:	dayIndex = 4;	break;
+				case SATURDAY: 	dayIndex = 5;	break;
 			}
 			this.calendar.get(dayIndex).addAll(Arrays.asList(course.getStartTime(),course.getEndTime()));
 		}
@@ -67,11 +68,12 @@ public class Student implements Data{
 				for(String day : course.getDays()){//loops through each day course has to remove all times
 					int dayIndex = -1;
 						switch(day){
-					case MONDAY:	dayIndex = 0;	break;
-					case TUESDAY:	dayIndex = 1;	break;
-					case WEDNESDAY:	dayIndex = 2;	break;
-					case THURSDAY:	dayIndex = 3;	break;
-					case FRIDAY:	dayIndex = 4;	break;
+							case MONDAY:	dayIndex = 0;	break;
+							case TUESDAY:	dayIndex = 1;	break;
+							case WEDNESDAY:	dayIndex = 2;	break;
+							case THURSDAY:	dayIndex = 3;	break;
+							case FRIDAY:	dayIndex = 4;	break;
+							case SATURDAY: 	dayIndex = 5;	break;
 					}
 						this.calendar.get(dayIndex).removeAll(Arrays.asList(course.getStartTime(),course.getEndTime()));
 				}
@@ -89,6 +91,7 @@ public class Student implements Data{
 	
 	
 }
+
 
 
 
