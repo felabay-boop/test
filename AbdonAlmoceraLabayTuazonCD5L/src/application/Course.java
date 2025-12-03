@@ -77,6 +77,7 @@ public class Course implements Data{
 					case "Wed":		days.add(WEDNESDAY);break;
 					case "Thurs":	days.add(THURSDAY);	break;
 					case "Fri":		days.add(FRIDAY);	break;
+					case "Sat":		days.add(SATURDAY);	break;
 					case "TTh":		days.addAll(Arrays.asList(TUESDAY,THURSDAY));	break;
 					case "WF":		days.addAll(Arrays.asList(WEDNESDAY,FRIDAY));	break;
 					case "TBA":		days = null;	break;	//nulls days if not available
@@ -143,3 +144,4 @@ public class Course implements Data{
 		}
 	}
 }
+
