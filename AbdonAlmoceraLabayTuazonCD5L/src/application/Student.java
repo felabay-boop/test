@@ -4,8 +4,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Student implements Data{
+public class Student implements Data, Serializable{
 	//attributes
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String ID;
 	private ArrayList<Course> courses = new ArrayList<>();
@@ -111,3 +112,4 @@ public class Student implements Data{
 	
 	
 }
+
