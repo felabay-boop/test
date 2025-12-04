@@ -25,24 +25,24 @@ import javafx.event.EventHandler;
 public class Dashboard{
 	TableView<Course> table = new TableView<>();
 
-	TableView<Course> planner = new TableView<>();
+	TableView<Student> planner = new TableView<>();
 
 	//////////////////////////////////////////////////
 	
-	ArrayList<Course> fullList = new ArrayList<>();
+	ArrayList<Student> fullList = new ArrayList<>();
 
 	//the arraylist for the searched items
 	ArrayList<Course> searched = new ArrayList<>();
 	
 	public void start(Stage stage) {
         planner.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-		TableColumn<User, String> colCode   = new TableColumn<>("Course Code");
-		TableColumn<User, String> colTitle   = new TableColumn<>("Course Title");
-		TableColumn<User, int> colUnits   = new TableColumn<>("Units");
-		TableColumn<User, String> colSection   = new TableColumn<>("Section");
-		TableColumn<User, ArrayList<String>> colDays   = new TableColumn<>("Days");
-		TableColumn<User, String> colTimes   = new TableColumn<>("Times");
-		TableColumn<User, String> colRooms   = new TableColumn<>("Rooms");
+		TableColumn<Student, String> colCode   = new TableColumn<>("Course Code");
+		TableColumn<Student, String> colTitle   = new TableColumn<>("Course Title");
+		TableColumn<Student, String> colUnits   = new TableColumn<>("Units");
+		TableColumn<Student, String> colSection   = new TableColumn<>("Section");
+		TableColumn<Student, ArrayList<String>> colDays   = new TableColumn<>("Days");
+		TableColumn<Student, String> colTimes   = new TableColumn<>("Times");
+		TableColumn<Student, String> colRooms   = new TableColumn<>("Rooms");
 
 		colCode.setCellValueFactory(new PropertyValueFactory<>("courseCode"));
 		colTitle.setCellValueFactory(new PropertyValueFactory<>("courseTitle"));
@@ -56,64 +56,12 @@ public class Dashboard{
             colCode, colTitle, colUnits, colSection, colDays, colTimes, colRooms
         );
 		
-		ObservableList<User> data = FXCollections.observableArrayList(fullList);
+		ObservableList<Student> data = FXCollections.observableArrayList(fullList);
         planner.setItems(data);
-
-        /*
-		TableColumn<User, String> colUsername   = new TableColumn<>("Username");
-        TableColumn<User, String> colEmail      = new TableColumn<>("Email Address");
-        TableColumn<User, String> colFirstName  = new TableColumn<>("First Name");
-        TableColumn<User, String> colMiddleName = new TableColumn<>("Middle Name");
-        TableColumn<User, String> colLastName   = new TableColumn<>("Last Name");
-        TableColumn<User, String> colUserType   = new TableColumn<>("User Type");
-        TableColumn<User, String> colPassword   = new TableColumn<>("Password");
-
-        colUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("emailAddress"));
-        colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        colMiddleName.setCellValueFactory(new PropertyValueFactory<>("middleName"));
-        colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        colUserType.setCellValueFactory(new PropertyValueFactory<>("userType"));
-        colPassword.setCellValueFactory(new PropertyValueFactory<>("maskedpassword"));
-
-		
-
-        table.getColumns().addAll(
-            colUsername, colEmail, colFirstName, colMiddleName, colLastName, colUserType, colPassword
-        );
-
-        ObservableList<User> data = FXCollections.observableArrayList(sampleList);
-        table.setItems(data);
-        */
-		
-		table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-		TableColumn<User, String> colCode   = new TableColumn<>("Course Code");
-		TableColumn<User, String> colTitle   = new TableColumn<>("Course Title");
-		TableColumn<User, int> colUnits   = new TableColumn<>("Units");
-		TableColumn<User, String> colSection   = new TableColumn<>("Section");
-		TableColumn<User, ArrayList<String>> colDays   = new TableColumn<>("Days");
-		TableColumn<User, String> colTimes   = new TableColumn<>("Times");
-		TableColumn<User, String> colRooms   = new TableColumn<>("Rooms");
-
-		colCode.setCellValueFactory(new PropertyValueFactory<>("courseCode"));
-		colTitle.setCellValueFactory(new PropertyValueFactory<>("courseTitle"));
-		colUnits.setCellValueFactory(new PropertyValueFactory<>("units"));
-		colSection.setCellValueFactory(new PropertyValueFactory<>("section"));
-		colDays.setCellValueFactory(new PropertyValueFactory<>("days"));
-		colTimes.setCellValueFactory(new PropertyValueFactory<>("timeframe"));
-		colRooms.setCellValueFactory(new PropertyValueFactory<>("room"));
-
-		table.getColumns().addAll(
-            colCode, colTitle, colUnits, colSection, colDays, colTimes, colRooms
-        );
-		
-		ObservableList<User> data = FXCollections.observableArrayList(fullList);
-        table.setItems(data);
-        ////////////////////////////////////////////////////
         
 		
 		//HBox hbox = new HBox();
-		VBox root = new VBox();
+		VBox root = new VBox(table);
 		root.setStyle("-fx-padding: 12;");
 		
 		/*hbox.getChildren().add(cnu);
@@ -122,7 +70,7 @@ public class Dashboard{
 		hbox.getChildren().add(login);*/
 		
 		//root.setTop(hbox);
-		root.setCenter(table);
+		//root.setContent(table);
 		
 		stage.setScene(new Scene(root, 900, 320));
 		stage.setTitle("Hogwarts User Accounts");
@@ -130,7 +78,7 @@ public class Dashboard{
 	}
 
 	private void searchEngine(String codesearch, String timesearch){
-		for(Course i in fullList){
+		for(Course i : fullList){
 			if(i.getCourseCode().contains(search)){
 				searched.add(i);
 				continue;
@@ -138,4 +86,3 @@ public class Dashboard{
 		}
 	}
 }
-
