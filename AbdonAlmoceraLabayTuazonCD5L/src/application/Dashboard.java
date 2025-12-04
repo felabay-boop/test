@@ -26,6 +26,8 @@ public class Dashboard{
 	TableView<Course> table = new TableView<>();
 
 	TableView<Course> planner = new TableView<>();
+
+	//////////////////////////////////////////////////
 	
 	ArrayList<Course> fullList = new ArrayList<>();
 
@@ -125,6 +127,24 @@ public class Dashboard{
 		stage.setScene(new Scene(root, 900, 320));
 		stage.setTitle("Hogwarts User Accounts");
 		stage.show();
+	}
+
+	private void codeSearchEngine(String search){
+		for(Course i in fullList){
+			if(i.getCourseCode().contains(search)){
+				searched.add(i);
+				continue;
+			}
+		}
+	}
+
+	private void timeframeSearchEngine(String search){
+		for(Course i in fullList){
+			if(i.getCourseCode().contains(search)){
+				searched.add(i);
+				continue;
+			}
+		}
 	}
 }
 
