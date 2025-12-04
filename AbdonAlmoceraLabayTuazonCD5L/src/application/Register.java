@@ -64,6 +64,7 @@ public class Register implements Data{//class for registering and holding studen
 				for(Student s : STUDENTS) {
 					if(s.getUsername().equals(userinput.getText()) && s.getPassword().equals(passinput.getText())) {//login successful
 						//dashboard starting method here!!!
+						loginDialog.close();
 						System.out.println("VALID");
 						return;
 					}
