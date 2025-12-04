@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -24,12 +24,41 @@ import javafx.event.EventHandler;
 
 public class Dashboard{
 	TableView<Course> table = new TableView<>();
-	ArrayList<Course> sampleList = new ArrayList<>();
+
+	TableView<Course> planner = new TableView<>();
+	
+	ArrayList<Course> fullList = new ArrayList<>();
+
+	//the arraylist for the searched items
+	ArrayList<Course> searched = new ArrayList<>();
 	
 	public void start(Stage stage) {
-        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        planner.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+		TableColumn<User, String> colCode   = new TableColumn<>("Course Code");
+		TableColumn<User, String> colTitle   = new TableColumn<>("Course Title");
+		TableColumn<User, int> colUnits   = new TableColumn<>("Units");
+		TableColumn<User, String> colSection   = new TableColumn<>("Section");
+		TableColumn<User, ArrayList<String>> colDays   = new TableColumn<>("Days");
+		TableColumn<User, String> colTimes   = new TableColumn<>("Times");
+		TableColumn<User, String> colRooms   = new TableColumn<>("Rooms");
 
-        /*TableColumn<User, String> colUsername   = new TableColumn<>("Username");
+		colCode.setCellValueFactory(new PropertyValueFactory<>("courseCode"));
+		colTitle.setCellValueFactory(new PropertyValueFactory<>("courseTitle"));
+		colUnits.setCellValueFactory(new PropertyValueFactory<>("units"));
+		colSection.setCellValueFactory(new PropertyValueFactory<>("section"));
+		colDays.setCellValueFactory(new PropertyValueFactory<>("days"));
+		colTimes.setCellValueFactory(new PropertyValueFactory<>("timeframe"));
+		colRooms.setCellValueFactory(new PropertyValueFactory<>("room"));
+
+		planner.getColumns().addAll(
+            colCode, colTitle, colUnits, colSection, colDays, colTimes, colRooms
+        );
+		
+		ObservableList<User> data = FXCollections.observableArrayList(fullList);
+        planner.setItems(data);
+
+        /*
+		TableColumn<User, String> colUsername   = new TableColumn<>("Username");
         TableColumn<User, String> colEmail      = new TableColumn<>("Email Address");
         TableColumn<User, String> colFirstName  = new TableColumn<>("First Name");
         TableColumn<User, String> colMiddleName = new TableColumn<>("Middle Name");
@@ -54,7 +83,8 @@ public class Dashboard{
         ObservableList<User> data = FXCollections.observableArrayList(sampleList);
         table.setItems(data);
         */
-
+		
+		table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 		TableColumn<User, String> colCode   = new TableColumn<>("Course Code");
 		TableColumn<User, String> colTitle   = new TableColumn<>("Course Title");
 		TableColumn<User, int> colUnits   = new TableColumn<>("Units");
@@ -71,21 +101,25 @@ public class Dashboard{
 		colTimes.setCellValueFactory(new PropertyValueFactory<>("timeframe"));
 		colRooms.setCellValueFactory(new PropertyValueFactory<>("room"));
 
-		ObservableList<User> data = FXCollections.observableArrayList(sampleList);
+		table.getColumns().addAll(
+            colCode, colTitle, colUnits, colSection, colDays, colTimes, colRooms
+        );
+		
+		ObservableList<User> data = FXCollections.observableArrayList(fullList);
         table.setItems(data);
         ////////////////////////////////////////////////////
         
 		
-		HBox hbox = new HBox();
-		BorderPane root = new BorderPane();
+		//HBox hbox = new HBox();
+		VBox root = new VBox();
 		root.setStyle("-fx-padding: 12;");
 		
-		hbox.getChildren().add(cnu);
+		/*hbox.getChildren().add(cnu);
 		hbox.getChildren().add(ds);
 		hbox.getChildren().add(exit);
-		hbox.getChildren().add(login);
+		hbox.getChildren().add(login);*/
 		
-		root.setTop(hbox);
+		//root.setTop(hbox);
 		root.setCenter(table);
 		
 		stage.setScene(new Scene(root, 900, 320));
