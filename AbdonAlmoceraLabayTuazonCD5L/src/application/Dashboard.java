@@ -129,16 +129,7 @@ public class Dashboard{
 		stage.show();
 	}
 
-	private void codeSearchEngine(String search){
-		for(Course i in fullList){
-			if(i.getCourseCode().contains(search)){
-				searched.add(i);
-				continue;
-			}
-		}
-	}
-
-	private void timeframeSearchEngine(String search){
+	private void searchEngine(String codesearch, String timesearch){
 		for(Course i in fullList){
 			if(i.getCourseCode().contains(search)){
 				searched.add(i);
