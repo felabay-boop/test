@@ -10,8 +10,9 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Course implements Data{
+public class Course implements Data, Serializable{
 	//attributes
+	private static final long serialVersionUID = 1L;
 	public static ArrayList<Course> COURSES = new ArrayList<>();	//holds all courses
 	public static ArrayList<Course> CMSC_COURSES = new ArrayList<>();
 	public static ArrayList<Course> MSCS_COURSES = new ArrayList<>();
@@ -151,3 +152,4 @@ public class Course implements Data{
 		System.out.println(this.getDescription());
 	}
 }
+
