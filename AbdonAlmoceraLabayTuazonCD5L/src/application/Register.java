@@ -19,6 +19,28 @@ import javafx.scene.text.Text;
 public class Register implements Data{//class for registering and holding student data
 	public static ArrayList<Student> STUDENTS = new ArrayList<>();
 	public static void addStudent(Student s) {STUDENTS.add(s);}
+
+	public static void saveAllStudents() {
+		System.out.println("Saving...");
+		try {//saves list of all students
+			ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get("src/storage/save.txt")));
+			out.writeObject(STUDENTS);
+			out.close();
+		}
+		catch(IOException e) {e.printStackTrace();}
+		System.out.println("Saved");
+	}
+	@SuppressWarnings("unchecked")
+	public static void loadAllStudents() {
+		System.out.println("Loading...");
+		try {//loads entire student list
+			ObjectInputStream in = new ObjectInputStream(Files.newInputStream(Paths.get("src/storage/save.txt")));
+			STUDENTS = (ArrayList<Student>) in.readObject();
+			in.close();
+		}
+		catch(Exception e) {e.printStackTrace();}
+		System.out.println("Loaded");
+	}
 	
 	public static void loginScreen() {
 		//creates dialog box for login and register
