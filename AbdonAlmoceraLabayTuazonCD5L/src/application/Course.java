@@ -23,15 +23,16 @@ public class Course implements Data{
 	private String section; 
 	//private String time;
 	private ArrayList<String> days; 
-	private String timeframe;
+	private String daysdata;
 	private LocalTime startTime;
 	private LocalTime endTime;
+	private String timeframe;
 	private String room;
 	private String description;
 	private String degreeProgram;
 
 	public Course (String courseCode, String courseTitle, int units,
-					String section, LocalTime startTime, LocalTime endTime, ArrayList<String> days, String room, String description, String degreeProgram, String timeframe){
+					String section, LocalTime startTime, LocalTime endTime, ArrayList<String> days, String room, String description, String degreeProgram, String timeframe, String daysdata){
 		this.courseCode 	= courseCode; 
 		this.courseTitle 	= courseTitle; 
 		this.units 			= units; 
@@ -42,7 +43,8 @@ public class Course implements Data{
 		this.room 			= room; 
 		this.description 	= description;
 		this.degreeProgram	= degreeProgram;
-		this.timeframe 		= timeframe;
+		this.timeframe		= timeframe;
+		this.daysdata		= daysdata;
 	}
 
 	//getters for course detail display
@@ -57,6 +59,7 @@ public class Course implements Data{
 	public String 				getDescription() 	{return this.description;}
 	public String				getDegreeProgram()	{return this.degreeProgram;}
 	public String				getTimeframe()		{return this.timeframe;}
+	public String				getDaysData()		{return this.daysdata;}
 	
 
 
@@ -121,7 +124,7 @@ public class Course implements Data{
 					
 				//adds course
 				//Course course = new Course(cD[0],cD[1],Integer.parseInt(cD[2]),cD[3],actualTimes[0],actualTimes[1],days,cD[6],desc,degprog);
-				COURSES.add(new Course(cD[0],cD[1],Integer.parseInt(cD[2]),cD[3],actualTimes[0],actualTimes[1],days,cD[6],desc,degprog,cD[4]));
+				COURSES.add(new Course(cD[0],cD[1],Integer.parseInt(cD[2]),cD[3],actualTimes[0],actualTimes[1],days,cD[6],desc,degprog,cD[4],daysdata));
 			}
 		}
 		catch(IOException e) {System.out.println(e);}
@@ -133,24 +136,18 @@ public class Course implements Data{
 			String line = reader.readLine();
 			for(line = reader.readLine(); line!=null; line = reader.readLine()) {//reads all courses
 				String[] cD = line.split(",");
-				if(cD[2].equals("1-3"))	cD[2] = "3";	//special case for CMSC 290 and 291 which has 1-3 units
-				degreeProgramCourses.add(new Course(cD[0],cD[1],Integer.parseInt(cD[2]),null,null,null,null,null,cD[3],degreeProgram,null)); //specific degree program csv does not hold section, timeframe, days, or room
+				if(cD[2].contains("-"))	cD[2] = "3";	//special case for CMSC 290 and 291 which has 1-3 units
+				degreeProgramCourses.add(new Course(cD[0],cD[1],Integer.parseInt(cD[2]),null,null,null,null,null,cD[3],degreeProgram,null,null)); //specific degree program csv does not hold section, timeframe, days, or room
 			}
 		}
 		catch(IOException e) {}
 	}
 	
 	public void viewCourseDetails() {
-		//insert implementation
-	}
-	
-	public static void testMethod() {
-		System.out.println(COURSES.size());
-		for(Course c : COURSES) {
-			System.out.println(c.getCourseCode() + "|" + c.getSection() + "|" + c.getRoom());
-		}
+		System.out.println(this.getCourseCode());
+		System.out.println(this.getCourseTitle());
+		System.out.println("Units: " + this.getUnits());
+		System.out.println("Degree Program: " + this.getDegreeProgram());
+		System.out.println(this.getDescription());
 	}
 }
-
-
-
