@@ -13,13 +13,18 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 
 
-public class Main extends Application {
-	@Override
-	public void start(Stage stage) {
+public class Calendar{
+	ArrayList<Courses> courses = new ArrayList<Courses>();
+
+	
+	public Calendar(){
+		
+	}
+	
+	public void setup() {
 		try {
 			//SETUP
 			Group root = new Group();
-			Scene scene = new Scene(root,650,505);
 			
 			Rectangle r1 = new Rectangle(650, 25, Color.AZURE);
 			Rectangle r2 = new Rectangle(50, 505, Color.AZURE);
@@ -81,9 +86,6 @@ public class Main extends Application {
 			
 			//COURSE-PLACING (THE RECTANGLES)
 			//for() {}
-			
-			stage.setScene(scene);
-			stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -93,3 +95,4 @@ public class Main extends Application {
 		launch(args);
 	}
 }
+
