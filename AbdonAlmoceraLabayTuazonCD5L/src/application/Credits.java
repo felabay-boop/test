@@ -1,5 +1,6 @@
 package application;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -23,7 +24,7 @@ public class Credits {
 		text2.setStyle("-fx-font-size: 20px; -fx-font-weight: bold");
 		
 		Label text3 = new Label("Ross Armand Almocera"); 
-		text3.setStyle("-fx-font-size: 12px; -fx-font-weight: bold");
+		text3.setStyle("-fx-font-size: 14px; -fx-font-weight: bold");
 		
 		Label text4 = new Label("Ross is a developer of the PlanExe Planner app. \n"
 				+ "He is currently pursuing a Bachelor’s degree at the University \n"
@@ -32,7 +33,7 @@ public class Credits {
 		text4.setStyle("-fx-font-size: 12px; -fx-text-fill: gray");
 		
 		Label text5 = new Label("Jan Edrian Tuazon"); 
-		text5.setStyle("-fx-font-size: 12px; -fx-font-weight: bold");
+		text5.setStyle("-fx-font-size: 14px; -fx-font-weight: bold");
 		
 		Label text6 = new Label("Janet is one of the developers of the PlanExe app. \n"
 				+ "He is currently a 2nd-year BS Computer Science (BSCS) student at \n"
@@ -41,7 +42,7 @@ public class Credits {
 		text6.setStyle("-fx-font-size: 12px; -fx-text-fill: gray");
 		
 		Label text7 = new Label("Franzuebelle Labay"); 
-		text7.setStyle("-fx-font-size: 12px; -fx-font-weight: bold");
+		text7.setStyle("-fx-font-size: 14px; -fx-font-weight: bold");
 		
 		Label text8 = new Label("Franz served as the designer and writer of the PlanExe \n"
 				+ "app. She is currently a 3rd-year BS Development Communication \n"
@@ -50,7 +51,7 @@ public class Credits {
 		text8.setStyle("-fx-font-size: 12px; -fx-text-fill: gray");
 		
 		Label text9 = new Label("Lorraine Abdon"); 
-		text9.setStyle("-fx-font-size: 12px; -fx-font-weight: bold");
+		text9.setStyle("-fx-font-size: 14px; -fx-font-weight: bold");
 		
 		Label text10 = new Label("Rain is a writer in the PlanExe app. She is currently \n"
 				+ "a 3rd-year BS Development Communication student at the University \n"
