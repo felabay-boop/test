@@ -15,6 +15,7 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
@@ -31,21 +32,41 @@ public class Dashboard implements Data{
 	ArrayList<Course> searched = new ArrayList<>();
 	
 	public static void showDashboard(BorderPane root, Student student) {
+		BorderPane root1 = new BorderPane(); 
+		root1.setStyle("-fx-background-color: #c5c8cc;"); 
+		
+		VBox top = new VBox(10); 
+		top.setPadding(new Insets(15));
+		top.setStyle("-fx-background-color: #ecf0f1");	
 		
 		//creates taskbar
+		
 		Button about = new Button("About");
+		about.setStyle("-fx-pref-width: 100px; -fx-font-size: 12px; -fx-font-weight: bold"); 
+		
 		Button credits = new Button("Credits");
+		credits.setStyle("-fx-pref-width: 100px; -fx-font-size: 12px; -fx-font-weight: bold"); 
+		
 		Button exit = new Button("Exit");
-		Text studentName = new Text(student.getName());
-		HBox taskbar = new HBox(about,credits,exit,studentName);
+		exit.setStyle("-fx-pref-width: 100px; -fx-font-size: 12px; -fx-font-weight: bold"); 
+		
+		HBox taskbar = new HBox(about,credits,exit);
+		taskbar.setStyle("-fx-pref-width: 500px;"); 
+		
 		root.setTop(taskbar);
 		
 		Text hello = new Text("Good day, " + student.getName());
+		hello.setStyle("-fx-font-size: 20px; -fx-font-weight: bold");
+		
 		VBox box = new VBox(hello);
+		
 		HBox contents = new HBox(box);
+		
 		root.setCenter(contents);
+		
 		root.setRight(new VBox(courseSearchEngine(root,student),removeSearchEngine(root,student)));
 		//root.setRight(courseSearchEngine(root,student));	//defaults to add course
+		
 		root.setBottom(Calendar.setup(student));
 		//root.setLeft(removeSearchEngine(root,student));
 		
