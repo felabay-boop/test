@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class About {
-	public static void about( ) { //send help in this area
+	public static void about() {
 		Stage window = new Stage(); 
 		window.setTitle("About PlanExe");
 		
@@ -20,31 +20,31 @@ public class About {
 		Label text1 = new Label("About"); 
 		text1.setStyle("-fx-font-size: 25px; -fx-font-weight: bold");
 		
-		Label text2 = new Label("PlanExe is a planner application that helps the \\n\"\r\n"
-				+ "				+ \"Institute of Computer Science (ICS) students plan their preferred \\n\"\r\n"
-				+ "				+ \"schedule for the upcoming semester. This application allows students \\n\"\r\n"
-				+ "				+ \"to add, delete, and edit their courses according to their respective \\n\"\r\n"
-				+ "				+ \"programs.\\n\\n\""); 
-		text2.setStyle("-fx-font-size: 10px; -fx-text-fill: gray");
+		Label text2 = new Label("PlanExe is a planner application that helps the Institute of Computer \n"
+				+ "Science (ICS) students plan their preferred schedule for the upcoming semester. \n"
+				+ "This application allows students to add, delete, and edit their courses according \n"
+				+ "to their respective programs."); 
+		text2.setStyle("-fx-font-size: 12px; -fx-text-fill: gray");
 		
 		Label text3 = new Label("How to use: "); 
-		text3.setStyle("-fx-font-size: 18px; -fx-font-weight: bold");
+		text3.setStyle("-fx-font-size: 14px; -fx-font-weight: bold");
 		
-		Label text4 = new Label("To start, log in or register a username and password to enter the system. \\n\"\r\n"
-				+ "				+ \"Once entered, the students will be greeted with an interface where they \\n\"\r\n"
-				+ "				+ \"can do the main functionality of the app–add, delete, and edit courses, \\n\"\r\n"
-				+ "				+ \"with a restriction that the students can only engage with courses from \\n\"\r\n"
-				+ "				+ \"their respective degree programs. The app has buttons and other \\n\"\r\n"
-				+ "				+ \"clickables to interact with appropriate labels that are easy to navigate \\n\"\r\n"
-				+ "				+ \"to help students make their dream schedule efficiently. \\n\\n\"");
-		text4.setStyle("-fx-font-size: 10px; -fx-text-fill: gray");
+		Label text4 = new Label("To start, log in or register a username and password to enter the system. \n"
+				+ "Once entered, the students will be greeted with an interface where they can do the \n"
+				+ "main functionality of the app–add, delete, and edit courses, with a restriction that \n"
+				+ "the students can only engage with courses from their respective degree programs.\n\n"
+				
+				+ "The app has buttons and other clickables to interact with appropriate labels \n"
+				+ "that are easy to navigate to help students make their dream schedule efficiently.");
+		text4.setStyle("-fx-font-size: 12px; -fx-text-fill: gray");
 		
 		Label text5 = new Label("Data Privacy: "); 
-		text5.setStyle("-fx-font-size: 18px; -fx-font-weight: bold");
+		text5.setStyle("-fx-font-size: 14px; -fx-font-weight: bold");
 		
-		Label text6 = new Label("In line with RA 10173, the Data Privacy Act, all personal information \\\\n\\\"\\r\\n\"\r\n"
-				+ "				+ \"				+ \\\"inputted by the user is strictly confidential, is not sold to third parties, \\\\n\\\"\\r\\n\"\r\n"
-				+ "				+ \"				+ \\\"and is only used to personalize and navigate the app.\\\\n\\\"");
+		Label text6 = new Label("In line with RA 10173, the Data Privacy Act, all personal information \n"
+				+ "inputted by the user is strictly confidential, is not sold to third parties, and is \n"
+				+ "only used to personalize and navigate the app.");
+		text6.setStyle("-fx-font-size: 12px; -fx-text-fill: gray");
 		
 		vbox.getChildren().add(text1); 
 		vbox.getChildren().add(text2); 
