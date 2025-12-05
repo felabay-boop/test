@@ -74,7 +74,7 @@ public class Credits {
 		vbox.getChildren().add(text10); 
 		vbox.getChildren().add(text11); 
 	
-		window.setScene(new Scene(vbox, 300, 150)); 
+		window.setScene(new Scene(vbox, 420, 600));  
 		window.show(); 
 	}
 }
