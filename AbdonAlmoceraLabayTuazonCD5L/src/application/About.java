@@ -53,7 +53,7 @@ public class About {
 		vbox.getChildren().add(text5); 
 		vbox.getChildren().add(text6); 
 	
-		window.setScene(new Scene(vbox, 300, 150)); 
+		window.setScene(new Scene(vbox, 490, 400)); 
 		window.show(); 
 	}
 }
