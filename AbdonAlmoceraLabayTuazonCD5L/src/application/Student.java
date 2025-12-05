@@ -1,5 +1,6 @@
 package application;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,13 +36,14 @@ public class Student implements Data, Serializable{
 	
 	//methods
 	public void addCourse(Course course){
-		if(!(this.degprog == course.getDegreeProgram())) {
-			System.out.println("ERROR this course is not under your degree program");
-			return;
-		}
+//		if(!(this.degprog.equals(course.getDegreeProgram()))) {
+//			System.out.println("ERROR this course is not under your degree program");
+//			return;
+//		}
 		for(Course c : this.courses) {//loops through each course
 			if(c.getCourseCode().equals(course.getCourseCode())) {//checks if student already has course
 				System.out.println("ERROR you already have this course");
+				Dashboard.showErrorAlert("You already have this course in your planner.");
 				return;
 			}
 		for(String day : course.getDays()){
@@ -49,6 +51,7 @@ public class Student implements Data, Serializable{
 				course.getEndTime().isAfter(c.getStartTime()) && 
 			   (c.getDays().contains(day))){//if true, the course's schedule to be added collides with an existing course's
 				System.out.println("ERROR schedule collision with " + c.getCourseTitle());
+				Dashboard.showErrorAlert("This course's schedule collides with " + c.getCourseTitle() + ".");
 				return;
 				}
 			}
@@ -112,4 +115,3 @@ public class Student implements Data, Serializable{
 	
 	
 }
-
