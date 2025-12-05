@@ -1,5 +1,10 @@
 package application;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import javafx.beans.value.ChangeListener;
@@ -14,12 +19,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class Register implements Data{//class for registering and holding student data
 	public static ArrayList<Student> STUDENTS = new ArrayList<>();
 	public static void addStudent(Student s) {STUDENTS.add(s);}
-
+	
 	public static void saveAllStudents() {
 		System.out.println("Saving...");
 		try {//saves list of all students
@@ -42,7 +49,7 @@ public class Register implements Data{//class for registering and holding studen
 		System.out.println("Loaded");
 	}
 	
-	public static void loginScreen() {
+	public static void loginScreen(Stage stage) {
 		//creates dialog box for login and register
 		Dialog<Void> loginDialog = new Dialog<Void>();
 		GridPane loginDetails = new GridPane();
@@ -65,8 +72,10 @@ public class Register implements Data{//class for registering and holding studen
 		
 		//adds ok/confirm button for login
 		ButtonType okType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+		Text hello = new Text("Welcome");
+		VBox loginScreen = new VBox(hello,loginDetails);
 		loginDialog.getDialogPane().getButtonTypes().add(okType);
-		loginDialog.getDialogPane().setContent(loginDetails);
+		loginDialog.getDialogPane().setContent(loginScreen);
 		//changes ok button's text to "Login"
 		Button okButton = (Button) loginDialog.getDialogPane().lookupButton(okType);
 		okButton.setText("Login");
@@ -86,8 +95,9 @@ public class Register implements Data{//class for registering and holding studen
 				for(Student s : STUDENTS) {
 					if(s.getUsername().equals(userinput.getText()) && s.getPassword().equals(passinput.getText())) {//login successful
 						//dashboard starting method here!!!
-						loginDialog.close();
+						Dashboard.showDashboard(stage,s);
 						System.out.println("VALID");
+						loginDialog.close();
 						return;
 					}
 				}
@@ -160,6 +170,7 @@ public class Register implements Data{//class for registering and holding studen
 			//creates new student given registration details
 			STUDENTS.add(new Student(nameinput.getText(),IDinput.getText(),new ArrayList<>(),degreeinput.getValue(),userinput.getText(),passinput.getText()));
 			System.out.println("VALID");
+			saveAllStudents();
 			registerDialog.close();
 		});
 		registerDialog.showAndWait();
