@@ -14,6 +14,7 @@ public class Credits {
 		VBox vbox = new VBox(); 
 		vbox.setAlignment(Pos.TOP_LEFT);
 		vbox.setSpacing(8);
+		vbox.setPadding(new Insets(20, 20, 20, 20));
 		
 		Label text1 = new Label("Credits"); 
 		text1.setStyle("-fx-font-size: 25px; -fx-font-weight: bold");
